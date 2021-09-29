@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+   <!-- <div class="container">
+    <p>{{vastu.heading}}</p>
+    <p>{{vastu.description}}</p>
+
+   </div> -->
+
+   <header class=" bg-image-full" style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1600x900')">
+    <div class="text-center mt-3">
+        <img class="img-fluid rounded-circle mb-4" src="https://dummyimage.com/150x150/6c757d/dee2e6.jpg" alt="...">
+        <h1 class="text-white fs-3 fw-bolder">Vastu Page</h1>
+        <p class="text-white-50 mb-0">This is vastu page</p>
+    </div>
+</header>
+<section class="py-5">
+    {% for vastu in vastus %}
+
+        <div class="my-5">
+            <div class="container vastu-block-2">
+                <h2>{{vastu.heading}}</h2>
+                <p class="lead">{{vastu.smalldesc}}</p>
+                <p >{{vastu.description}}</p>
+            </div>
+        </div>
+
+    {% endfor %}
+</section>
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+#service-desc{
+	width:100%;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+.card-img-top{
+
+	width:100%;
+	height:240px;
+
+}
+
+{% endblock %}
+
+{% block content %}
+
+<!-- Main Start -->
+<div class = "container margin-top">
+    <!-- banner Start -->
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+          {% for banner in banners %}
+          <script>console.log('{{banner.img.url }}')</script>
+        <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}">
+          <img class="slider-image" src='{{banner.img.url }}' class="d-block w-100" alt='{{ banner.alt_text }}'>
+        </div>
+        {% endfor %}
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <!-- End Banner -->
+    <!-- Services -->
+    <section class="container mt-4">
+        <h1 class="text-center mb-4 section-heading">Services</h1>
+        <div class="row">
+            {% for service in services %}
+            <div class="col-md-4">
+                <div class="card svc-card" style="border-radius: 10px; overflow: hidden;">
+                  <img src={{service.img.url}} class="card-img-top" alt="{{service.title}}">
+                  <div class="card-body">
+                    <h3 class="card-title" style="font-weight: 700;">{{service.title}}</h3>
+                    <p class="card-text" id="service-desc" style="font-style: italic;font-weight: 600;">{{service.description}}</p>
+                    <form action="{% url 'basic:cart_add' service.id %}" method="POST">
+                      {% csrf_token %}
+                      <input class="btn btn-outline-primary " type="submit" value="Add to cart">
+                    </form>
+                  </div>
+                </div>
+            </div>
+            
+         
+            {% endfor %}
+        </div>
+    </section>
+    <!-- End -->
+
+    <!-- Testimonials -->
+    <section class=" mt-4 mb-4 container-fluid bg-light py-4 mt-5 border-top border-bottom testimonials-container">
+            <div class="row">
+                <div class="col">
+                        <h1 class="mb-4 section-heading">{{about.title}}</h1>
+                        <p class="lh-base">{{about.description1}}</p>
+                        <p><a href="{% url 'basic:about' %}" class="btn btn-sm btn-outline-info">Read More</a></p>
+                </div>
+                
+        </div>
+    </section>
+    <!-- End Testimonials -->
+
+</div>
+<!-- End -->
+
+{% endblock %}
+
+

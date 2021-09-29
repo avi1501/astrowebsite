@@ -1,0 +1,16 @@
+
+
+<h1>Redirecting you to merchant.</h1>
+<p>
+    <h2>
+        Please do not refresh the page.
+    </h2>
+</p>
+<form action="https://securegw-stage.paytm.in/theia/processTransaction" method="POST" name="paytm">
+     {% for key,value in param_dict.items %}
+        <input type="hidden" name="{{key}}" id="" value="{{value}}">
+     {% endfor %}
+</form>
+<script>
+    document.paytm.submit()
+</script>

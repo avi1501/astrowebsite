@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <hr><hr><hr><hr>
+    <div class="container">
+        
+    <h4>Your Order with <strong>{{order_id}}</strong> is Successfully Created. Check Your Mail</h4>
+    <a href="{% url 'basic:home' %}" class='btn btn-primary'>Go to Homepage</a>
+    
+    </div>
+{% endblock %}

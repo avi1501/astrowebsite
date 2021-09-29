@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+   <header class="back-black margin-top-vedic text-white text-center">
+        <h1 class="fw-bolder">Vedic Astrology page</h1>
+        <p class="lead">A static Tag line for this page</p>
+        
+</header>
+<section class="py-5">
+    <div class="my-5">
+            {% for vedic in vedas %}
+
+                <div class="container vastu-block-2">
+                    <h2>{{vedic.heading}}</h2>
+                    <p class="lead">{{vedic.smalldesc}}</p>
+                    <p >{{vedic.description}}</p>
+                </div>
+
+            {% endfor %}
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,14 @@
+<h1>Your Payment is Completed</h1>
+<h1>Please wait</h1>
+
+<h2>Do not Refresh the page</h2>
+
+<form action="{% url 'basic:handler' %}" name="form1" method="POST">
+
+    {% csrf_token %}
+
+</form>
+
+<script>
+    document.form1.submit()
+</script>

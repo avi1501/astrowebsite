@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600;1,700;1,800&display=swap');
+
+body{
+    font-family: 'Nunito', sans-serif !important;
+}
+.margin-top{
+    margin-top: 5rem;
+}
+.svc-card .card-body{
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+.svc-card .card-title{
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+.section-heading{
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.testimonials-container{
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.testimonials-container .section-heading{
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+.nav-link{
+    font-weight: 700;
+}
+.navs{
+    position: fixed;
+display: flex;
+top:0;
+left:0;
+flex-wrap: wrap;
+align-items: center;
+width: 100%;
+z-index: 2;
+justify-content: space-between;
+height: 70px;
+padding-top: .5rem;
+padding-bottom: .5rem;
+box-shadow: 10;
+box-shadow: 6px 15px 35px -5px;
+}

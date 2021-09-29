@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+<hr><hr><hr><hr>
+<br>
+
+<div class="card text-center">
+    <div class="card-header">
+      Payment Page
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Complete Your Payment</h5>
+      <h4 class="card-title">Your Details</h4>
+      <p class="card-text">
+          <p>Name <strong>{{name}}</strong></p>
+          <p>Email <strong>{{email}}</strong></p>
+          <p>Phone No <strong>{{phone}}</strong></p>
+          <p>Address <strong>{{address}}</strong></p>
+          <p>Country <strong>{{country}}</strong></p>
+          <p>Total Item in Cart <strong>{{cart.get_item_no}}</strong></p>
+          <p>Total Amount <strong>{{amount}}</strong></p>
+      </p>
+      
+    </div>
+    <div class="card-footer text-muted">
+        <div id="paypal-button-container"></div>
+    </div>
+  </div>
+
+
+<script src="https://www.paypal.com/sdk/js?client-id=Ac-zK08p3iow7PLUxh6tQ3EZzakfW0UsQvjbslM8PiEuMgpnJSNA4aaRDclfHkFAND-eOeiymsjyNlcx&currency=USD"></script>
+
+    <script>
+        // Render the PayPal button into #paypal-button-container
+        paypal.Buttons({
+
+            // Set up the transaction
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: '{{cart.get_total_price_outsider}}'
+                        }
+                    }]
+                });
+            },
+
+            // Finalize the transaction
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(orderData) {
+                    // Successful capture! For demo purposes:
+                    console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                    var transaction = orderData.purchase_units[0].payments.captures[0];
+                    
+                    window.location = "{% url 'basic:paymentdone' %}"
+
+                    // Replace the above to show a success message within this page, e.g.
+                    // const element = document.getElementById('paypal-button-container');
+                    // element.innerHTML = '';
+                    // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                    // Or go to another URL:  actions.redirect('thank_you.html');
+                });
+            }
+
+        }).render('#paypal-button-container');
+    </script>
+    {% endblock %}

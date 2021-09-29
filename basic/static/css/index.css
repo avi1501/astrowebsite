@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600;1,700;1,800&display=swap');
+
+body{
+    font-family: 'Nunito', sans-serif !important;
+    background-color: red;
+}
+.margin-top{
+    margin-top: 5rem;
+}
+.svc-card .card-body{
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+.about-page .about-title h1{
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+.cart-logo{
+    height:2rem;
+    width:2rem;
+    margin:0px 10px 0px 0px;
+}
+.about-img{
+    margin-top:50px;
+    height:250px;
+    width:100%;
+}
+.about-page .about-title p{
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+a{
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+}
+.footer-copyright{
+    font-weight: 700;
+    font-size: 1rem;
+}
+.svc-card .card-title{
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+.section-heading{
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.bg-image-full{
+    margin-top: 5rem;
+    height:400px;
+}
+.vastu-block-2 h2{
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.services-page{
+    margin:7rem 0rem;
+}
+.services-page .section-heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding:.5rem 0rem;
+    background-color: black;
+    color:white;
+    border-radius: 10px;
+
+}
+.about-page h1{
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.back-black{
+    background-color: black;
+    padding: 5rem 0rem;
+}
+.vastu-block-2 .lead{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.margin-top-vedic{
+    margin-top: 6rem;
+}
+.vastu-block-2 p{
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.slider-image{
+    height:450px;
+    width:100%;
+}
+.testimonials-container{
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.testimonials-container .section-heading{
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+.nav-link{
+    font-weight: 700;
+}
+.navs{
+    position: fixed;
+display: flex;
+top:0;
+left:0;
+flex-wrap: wrap;
+align-items: center;
+width: 100%;
+z-index: 2;
+justify-content: space-between;
+height: 70px;
+padding-top: .5rem;
+padding-bottom: .5rem;
+box-shadow: 10;
+box-shadow: 6px 15px 35px -5px;
+}
