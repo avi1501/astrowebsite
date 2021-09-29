@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-j(wylvx#lbfz!q%jnu8iycbw4+9bf!0a-%ify68)+$%hxhu9ya'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -47,6 +47,8 @@ INSTALLED_APPS = [
 
 
 ]
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -86,35 +88,15 @@ WSGI_APPLICATION = 'main.wsgi.application'
 DEV_MODE = os.getenv("DEVELOPEMENT_MODE", "False") == "True"
 
 
-if DEV_MODE is True:
-    DATABASES = {
-        "default":{
-            "ENGINE" :  "django.db.backends.sqlite3",
-            "NAME"   :  BASE_DIR / "db.sqlite3"
 
-        }
-    
-    }
-elif len(sys.argv) > 0 and sys.argv[1] != "collectstatic":
-    if os.getenv("DATABASE_URL",  None) is None:
-        raise Exception("DATABASE_URL environment variable not defined")
-    DATABASES = {
-          'default': {
-
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-
-        'NAME': os.getenv("DATABASE_NAME"),
-
-        'USER': os.getenv("DATABASE_USER"),
-
-        'PASSWORD': os.getenv("DATABASE_PASSWORD"),
-
-        'HOST': os.getenv("DATABASE_HOST"),
-
-        'PORT': os.getenv("DATABASE_PORT"),
+DATABASES = {
+    "default":{
+        "ENGINE" :  "django.db.backends.sqlite3",
+        "NAME"   :  BASE_DIR / "db.sqlite3"
 
     }
-    }
+
+}
 
 
 
@@ -156,9 +138,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static') 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
