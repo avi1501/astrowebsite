@@ -312,7 +312,7 @@ def paytmsuccess(request):
         "CHANNEL_ID": "WEB",
         "INDUSTRY_TYPE_ID": "Retail",
         "WEBSITE": "WEBSTAGING",
-        'CALLBACK_URL':'http://localhost:8000/handlerequest/',
+        'CALLBACK_URL':f'http://{request.get_host()}/handlerequest/',
     }
     from . import checksum
     param_dict['CHECKSUMHASH'] = checksum.generate_checksum(param_dict,merchent_key)
